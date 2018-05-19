@@ -1,0 +1,93 @@
+{% extends 'master.html' %}
+{% block page-container %}
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'dashboard' %}">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">Ticket</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Ticket List
+                <span class="align-right">
+                    <i class="fa fa-plus"></i> <a href="{% url 'add_ticket' %}"> Add Ticket</a>
+                </span>
+            </div>
+            <form method="get">
+                <div class="form-group">
+                    <div class="form-row">
+
+                        <div class="col-md=3">
+                            <div>{{ filter.form.type.label_tag }}</div>
+                            <div>
+                                {{ filter.form.type.errors }}
+                                {{ filter.form.type }}
+                            </div>
+                        </div>
+                        <div class="col-md=3">
+                            <div>{{ filter.form.department.label_tag }}</div>
+                            <div>
+                                {{ filter.form.department.errors }}
+                                {{ filter.form.department }}
+                            </div>
+                        </div>
+                        <div class="col-md=3">
+                            <div>{{ filter.form.assigned_to.label_tag }}</div>
+                            <div>
+                                {{ filter.form.assigned_to.errors }}
+                                {{ filter.form.assigned_to }}
+                            </div>
+                        </div>
+                        <div class="col-md=3">
+                            <div>{{ filter.form.status.label_tag }}</div>
+                            <div>
+                                {{ filter.form.status.errors }}
+                                {{ filter.form.status }}
+                            </div>
+                        </div>
+
+                    </div>
+                    <br>
+                    <div class="form-row">
+                        <div class="col-md-2">
+                            <button type="submit" class="btn btn-primary btn-block">Search</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="data-table" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Assigned To</th>
+                            <th>Department</th>
+                            <th>closed_by</th>
+                            <th>Created Time</th>
+                            <th>Status</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        {% for row in item_list %}
+                            <tr>
+                                <td><a href="{{ row.get_absolute_url }}">{{ row.name }}</a></td>
+                                <td>{{ row.assigned_to }}</td>
+                                <td>{{ row.department }}</td>
+                                <td>{{ row.closed_by }}</td>
+                                <td>{{ row.created_time }}</td>
+                                <td>{{ row.get_status_display }}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+{#            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>#}
+        </div>
+    </div>
+{% endblock %}

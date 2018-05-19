@@ -1,0 +1,39 @@
+{% extends 'master.html' %}
+{% block page-container %}
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="{% url 'list_ticket' %}">Ticket List</a>
+            </li>
+            <li class="breadcrumb-item active">Add</li>
+        </ol>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Ticket Details
+            </div>
+            <div class="card-body">
+                <form method="post">{% csrf_token %}
+                    <div class="form-group">
+                        <div class="form-row">
+                            <div class="col-md-6">
+                                {{ form }}
+                            </div>
+                        </div>
+                        <br>
+                        <div class="form-row">
+                            <div class="col-md-3">
+                                <input type="submit" class="btn btn-primary btn-block" value="Save"/>
+                            </div>
+                            <div class="col-md-3">
+                                <a class="btn btn-primary btn-block" href="{% url 'list_ticket' %}">Cancel</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
+    </div>
+{% endblock %}
