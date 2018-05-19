@@ -33,7 +33,8 @@ In Eshopticket Assignment you can
 ### Prerequisites
 
 What things you need to install the software and how to install them
-
+ * first install pip on system windows or linux
+ * using pip install ---   /* with this command you can install all requirement*/
 * Django==2.0.5
 * django-filter==1.1.0
 * mysqlclient==1.3.12
