@@ -1,11 +1,5 @@
-# eshopbox
-Eshopbox is full ticket assignment project. 
-
-
-
-# Project Title
-
-Eshopbox Ticket Assignment App
+# Ticket Assignment 
+Eshopbox is ticket assignment project. Here anyone can create tickets. only admin can view all tickets rest of user can only view his own ticket.
 
 ## Getting Started
 
