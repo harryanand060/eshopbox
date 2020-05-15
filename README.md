@@ -1,5 +1,5 @@
 # eshopbox
-Eshopbox Assignment
+Eshopbox is full ticket assignment project. 
 
 
 
